@@ -3,8 +3,7 @@ from library_item import LibraryItem
 
 class Book(LibraryItem):
     """
-    Represents a single book in a library which is identified through
-    it's call number.
+    Represents a single book in a library which is identified through it's call number.
     """
 
     def __init__(self, call_num, title, num_copies, author):

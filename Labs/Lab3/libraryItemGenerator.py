@@ -4,12 +4,19 @@ from journal import Journal
 
 
 class LibraryItemGenerator:
+	"""
+	Represents an item generator of the library items.
+	"""
 
 	def __init__(self):
 		self._item = self.item_generator()
 
 	@staticmethod
 	def add_basic_info():
+		"""
+		Collect the basic information that all library items have.
+		:return: a tuple
+		"""
 		call_number = input("Enter Call Number: ")
 		title = input("Enter title: ")
 		num_copies = int(input("Enter number of copies (positive number): "))
@@ -19,22 +26,18 @@ class LibraryItemGenerator:
 	def add_book(self):
 		"""
 		Add a brand new book to the library with a unique call number.
+		:return: a Book
 		"""
 		book_data = self.add_basic_info()
 		author = input("Enter Author Name: ")
 		new_book = Book(book_data[0], book_data[1], book_data[2], author)
 		return new_book
 
-		# found_book = self.retrieve_item_by_call_number(
-		# 	new_book.call_number)
-		# if found_book:
-		# 	print(f"Could not add book with call number {new_book.call_number}. It already exists. ")
-		# else:
-		# 	self._item_list.append(new_book)
-		# 	print("book added successfully! book details:")
-		# 	print(new_book)
-
 	def add_journal(self):
+		"""
+		Add a brand new journal to the library with a unique call number.
+		:return: a Journal
+		"""
 		journal_data = self.add_basic_info()
 		issue_number = input("Enter Issue Number: ")
 		publisher = input("Enter publisher")
@@ -42,6 +45,10 @@ class LibraryItemGenerator:
 		return new_journal
 
 	def add_dvd(self):
+		"""
+		Add a brand new DVD to the library with a unique call number.
+		:return: a DVD
+		"""
 		dvd_data = self.add_basic_info()
 		release_date = input("Enter Release Date: ")
 		region_code = input("Enter Region Code")
@@ -49,6 +56,10 @@ class LibraryItemGenerator:
 		return new_dvd
 
 	def item_generator(self):
+		"""
+		Add a specified item to the library with a unique call number.
+		:return: a Library item
+		"""
 		print("\nWhat do you want to add?")
 		print("-----------------------")
 		print("1. Book")

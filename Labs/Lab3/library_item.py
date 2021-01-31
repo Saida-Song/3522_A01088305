@@ -5,6 +5,7 @@ class LibraryItem(abc.ABC):
 
 	def __init__(self, title, call_num, num_copies):
 		"""
+		:param title: a string
 		:param call_num: a string
 		:param num_copies: an int
 		:precondition call_num: a unique identifier

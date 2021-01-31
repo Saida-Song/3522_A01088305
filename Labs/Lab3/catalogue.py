@@ -7,7 +7,7 @@ class Catalogue:
 	def __init__(self, item_list):
 		"""
 		Intialize the library with a list of books.
-		:param item_list: a sequence of book objects.
+		:param item_list: a sequence of library item objects.
 		"""
 		self._item_list = item_list
 
@@ -27,7 +27,7 @@ class Catalogue:
 
 	def find_items(self, title):
 		"""
-		Find books with the same and similar title.
+		Find items with the same and similar title.
 		:param title: a string
 		:return: a list of titles.
 		"""
@@ -38,6 +38,11 @@ class Catalogue:
 		return results
 
 	def add_item(self):
+		"""
+		Add an item to the item list.
+
+		:return: an item added to the list
+		"""
 		item_generator = LibraryItemGenerator()
 		new_item = item_generator.item
 		if new_item is None:
@@ -98,4 +103,8 @@ class Catalogue:
 
 	@property
 	def item_list(self):
+		"""
+		Return the item list
+		:return: a list of item
+		"""
 		return self._item_list
