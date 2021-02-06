@@ -5,12 +5,19 @@ from Transaction import Transaction
 
 
 class FAMSystem:
+	"""
+	A class that simulates a Family Appointed Moderator system.
+	"""
 
 	def __init__(self):
 		self._accounts = []
 		self.load_test_user()
 
 	def view_budgets(self, account_num):
+		"""
+		View budgets of a given account number.
+		:param account_num: an integer
+		"""
 		for acc in self._accounts:
 			if account_num == acc.account_num:
 				for budget in acc.budgets:
@@ -18,12 +25,20 @@ class FAMSystem:
 					return
 
 	def add_to_budget(self, acc_num, transaction):
+		"""
+		Add a Transaction to a budget of an account.
+		:param acc_num: an integer
+		:param transaction: a Transaction
+		"""
 		for account in self._accounts:
 			if acc_num == account.account_num:
 				account.add_to_budget(transaction)
 				return
 
 	def load_test_user(self):
+		"""
+		Test function that auto-generate accounts and appended to the account list.
+		"""
 		bank = Bank("RBC", 5000)
 		bank2 = Bank("RBC", 5000)
 		bank3 = Bank("RBC", 5000)
@@ -36,10 +51,17 @@ class FAMSystem:
 
 	@property
 	def accounts(self):
+		"""
+		Account list getter.
+		:return: a list
+		"""
 		return self._accounts
 
 
 def main():
+	"""
+	Main function of the FAM system.
+	"""
 	new_fam = FAMSystem()
 	working = True
 	while working:
