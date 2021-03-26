@@ -37,14 +37,13 @@ class Catalogue:
 		results = difflib.get_close_matches(title, title_list, cutoff=0.5)
 		return results
 
-	def add_item(self):
+	def add_item(self, factory, **kwargs):
 		"""
 		Add an item to the item list.
 
 		:return: an item added to the list
 		"""
-		item_generator = LibraryItemFactory()
-		new_item = item_generator.item
+		new_item = factory().create_item(**kwargs)
 		if new_item is None:
 			print("Wrong input!!")
 			return

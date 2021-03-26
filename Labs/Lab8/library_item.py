@@ -2,6 +2,9 @@ import abc
 
 
 class LibraryItem(abc.ABC):
+	"""
+	A class that represents the library item.
+	"""
 
 	def __init__(self, title, call_num, num_copies, **kwargs):
 		"""
@@ -72,6 +75,9 @@ class LibraryItem(abc.ABC):
 
 
 class Book(LibraryItem):
+	"""
+	A class that represents a Book.
+	"""
 
 	def __init__(self, title, call_num, num_copies, **kwargs):
 		"""

@@ -1,6 +1,7 @@
 """ This module houses the library"""
 from catalogue import Catalogue
 from library_item import Book, DVD, Journal
+from libraryItemFactories import BookFactory, DVDFactory, JournalFactory
 
 
 class Library:
@@ -8,12 +9,59 @@ class Library:
     The Library consists of a list of items and provides an
     interface for users to check out, return and find items.
     """
-    def __init__(self, catalogue):
+    def __init__(self, catalogue: Catalogue):
         """
         Intialize the library with a list of items.
         :param catalogue: a Catalogue.
         """
         self._catalogue = catalogue
+
+    def add_item_to_catalogue(self):
+        """
+        Add a specified item to the library with a unique call number.
+        :return: a Library item
+        """
+        print("\nWhat do you want to add?")
+        print("-----------------------")
+        print("1. Book")
+        print("2. Journal")
+        print("3. DVD")
+        string_input = input("Please enter your choice (1-3)")
+
+        user_input = int(string_input)
+
+        if user_input < 1 or user_input > 3:
+            print("Wrong input!!")
+            return
+
+        call_number = input("Enter Call Number: ")
+        title = input("Enter title: ")
+        num_copies = int(input("Enter number of copies (positive number): "))
+
+        if user_input == 1:
+            author = input("Enter Author Name: ")
+            return self._catalogue.add_item(BookFactory,
+                                            title=title,
+                                            call_num=call_number,
+                                            num_copies=num_copies,
+                                            author=author)
+        if user_input == 2:
+            issue_number = input("Enter Issue Number: ")
+            publisher = input("Enter publisher")
+            return self._catalogue.add_item(JournalFactory,
+                                            title=title,
+                                            call_num=call_number,
+                                            num_copies=num_copies,
+                                            issue_num=issue_number,
+                                            publisher=publisher)
+        release_date = input("Enter Release Date: ")
+        region_code = input("Enter Region Code")
+        return self._catalogue.add_item(DVDFactory,
+                                        title=title,
+                                        call_num=call_number,
+                                        num_copies=num_copies,
+                                        release_date=release_date,
+                                        region_code=region_code)
 
     def check_out(self, call_number):
         """
@@ -92,7 +140,7 @@ class Library:
                     print("Sorry! We found nothing with that title")
 
             elif user_input == 5:
-                self._catalogue.add_item()
+                self.add_item_to_catalogue()
 
             elif user_input == 6:
                 call_number = input("Enter the call number of the item")
@@ -124,8 +172,8 @@ def generate_test_items():
     item_list = [
         Book("100.200.300", "Harry Potter 1", 2, author="J K Rowling"),
         Book("999.224.854", "Harry Potter 2", 5, author="J K Rowling"),
-        Journal("631.495.302", "Harry Potter 3", 4, "53434", "Router"),
-        DVD("123.02.204", "The Cat in the Hat", 1, "2014-01-05", "342DV")
+        Journal("631.495.302", "Harry Potter 3", 4, issue_num="53434", publisher="Router"),
+        DVD("123.02.204", "The Cat in the Hat", 1, release_date="2014-01-05", region_code="342DV")
     ]
     return item_list
 
