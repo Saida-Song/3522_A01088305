@@ -74,7 +74,7 @@ def main():
 			continue
 		acc_num = int(user_input)
 		category_list = ["Games and Entertainment", "Clothing and Accessories", "Eating out", "Miscellaneous"]
-		print(f"\n1. Games and Entertainment, 2. Clothing and Accessories, 3. Eating out, 4. Miscellaneous")
+		print(f"	1. Games and Entertainment\n	2. Clothing and Accessories\n	3. Eating out\n    4. Miscellaneous")
 		category_input = int(input("please choose which category you want to store the transaction (enter the number)"))
 		category = category_list[category_input - 1]
 		amount = float(input("Please enter the amount of the transaction"))
