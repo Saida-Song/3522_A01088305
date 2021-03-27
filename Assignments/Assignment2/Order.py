@@ -4,6 +4,17 @@ class Order:
     """
 
     def __init__(self, order_number, product_id, item_type, name, product_details, factory, quantity, holiday):
+        """
+        Construct a new order
+        :param order_number: str
+        :param product_id: str
+        :param item_type: str
+        :param name: str
+        :param product_details: str
+        :param factory: Factory
+        :param quantity: int
+        :param holiday: str
+        """
         self._order_number = order_number
         self._product_id = product_id
         self._item_type = item_type
@@ -19,6 +30,7 @@ class Order:
     def quantity(self):
         """
         Return quantity of the order.
+        :return: int
         """
         return self._quantity
 
@@ -26,6 +38,7 @@ class Order:
     def order_num(self):
         """
         Return order num of the order.
+        :return: str
         """
         return self._order_number
 
@@ -33,6 +46,7 @@ class Order:
     def product_id(self):
         """
         Return product id of the order.
+        :return: str
         """
         return self._product_id
 
@@ -40,6 +54,7 @@ class Order:
     def item_type(self):
         """
         Return item type of the order.
+        :return: str
         """
         return self._item_type
 
@@ -47,6 +62,7 @@ class Order:
     def name(self):
         """
         Return item name of the order.
+        :return: str
         """
         return self._name
 
@@ -54,6 +70,7 @@ class Order:
     def product_details(self):
         """
         Return other details of the item of the order.
+        :return: str
         """
         return self._product_details
 
@@ -61,6 +78,7 @@ class Order:
     def factory(self):
         """
         Return the factory that can generate the item.
+        :return: Factory
         """
         return self._factory
 
@@ -68,6 +86,7 @@ class Order:
     def holiday(self):
         """
         Return the holiday that the item for.
+        :return: str
         """
         return self._holiday
 
@@ -75,6 +94,7 @@ class Order:
     def invalid_notes(self):
         """
         Return the invalid notes if the item is invalid.
+        :return: str
         """
         return self._invalid_notes
 
@@ -82,6 +102,7 @@ class Order:
     def is_valid(self):
         """
         Return the valid status.
+        :return: str
         """
         return self._is_valid
 
@@ -94,6 +115,7 @@ class Order:
     def set_invalid_notes(self, error):
         """
         Set the invalid notes.
+        :param error: str
         """
         self._invalid_notes = error
 

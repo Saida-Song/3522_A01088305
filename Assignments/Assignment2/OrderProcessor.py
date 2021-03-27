@@ -163,7 +163,13 @@ class OrderProcessor:
 
 
 class FactoryMapping:
+    """
+    Factory Map used to mapping factory with option.
+    """
     def __init__(self):
+        """
+        Initiate a new factory map.
+        """
         self.factory_map = {
             "Christmas": ChristmasItemFactory,
             "Halloween": HalloweenItemFactory,
@@ -173,5 +179,6 @@ class FactoryMapping:
     def get_factory(self, holiday):
         """
         Return the factory based on the holiday.
+        :return: str
         """
         return self.factory_map[holiday]

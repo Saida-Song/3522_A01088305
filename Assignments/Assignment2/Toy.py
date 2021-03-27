@@ -49,6 +49,7 @@ class SantasWorkshop(Toy):
     def __str__(self):
         """
         String method of the class.
+        :return: str
         """
         return f"{super().__str__()}, " \
                f"Width: {self._width}, " \
@@ -80,6 +81,7 @@ class RCSpider(Toy):
     def __str__(self):
         """
         String method of the class.
+        :return: str
         """
         return f"{super().__str__()}, " \
                f"Speed: {self._speed}, " \
@@ -108,6 +110,7 @@ class RobotBunny(Toy):
     def __str__(self):
         """
         String method of the class.
+        :return: str
         """
         return f"{super().__str__()}, " \
                f"num_sound: {self._num_sound}, " \

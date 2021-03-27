@@ -15,7 +15,6 @@ class Store:
     def receive_order(self, filename):
         """
         Receive order. Validate order, if order invalid, print error msg. If order valid, print order msg.
-
         :param filename: str
         """
         temp_orders = OrderProcessor.read_file(filename)
@@ -48,12 +47,20 @@ class Store:
             else:
                 self.inventory[item] -= i.quantity
 
+        # check if the inventory is loaded (order has been proceeded)
+        if self.inventory:
+            print("Your orders has been proceeded. \n")
+
     def check_inventory(self):
         """
         Print item in the inventory with their quantity.
         """
-        for key, value in self.inventory.items():
-            print(f"Name: {key.get_name()}, PRODUCT_ID: {key.get_id()}, STATUS: {Store.return_stock_status(value)}")
+        # check empty inventory
+        if not self.inventory:
+            print("Your inventory is current empty.\n")
+        else:
+            for key, value in self.inventory.items():
+                print(f"Name: {key.get_name()}, PRODUCT_ID: {key.get_id()}, STATUS: {Store.return_stock_status(value)}")
 
     def generate_daily_transaction_report(self):
         """
@@ -86,6 +93,8 @@ class Store:
     def return_stock_status(num_of_item):
         """
         Return the status of the item in the inventory.
+        :param num_of_item: int
+        :return: str
         """
         if num_of_item == 0:
             return "Out of Stock"

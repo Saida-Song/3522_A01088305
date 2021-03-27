@@ -11,6 +11,12 @@ class StuffedAnimal(StoreItem):
     def __init__(self, name, description, product_id, stuffing, size, fabric):
         """
         Initiated a new Stuffed animal toy.
+        :param name: str
+        :param description: str
+        :param product_id: str
+        :param stuffing: str
+        :param size: str
+        :param fabric: str
         """
         super().__init__(name, description, product_id)
         self._stuffing = stuffing
@@ -20,6 +26,7 @@ class StuffedAnimal(StoreItem):
     def __str__(self):
         """
         String method of the class.
+        :return: str
         """
         return f"{super().__str__()}, " \
                f"Stuffing: {self._stuffing}, " \
@@ -34,6 +41,12 @@ class DancingSkeleton(StuffedAnimal):
     """
 
     def __init__(self, name, product_id, **kwargs):
+        """
+        Initiated a new DancingSkeleton.
+        :param name: str
+        :param product_id: str
+        :param kwargs: dict
+        """
         super().__init__(name, kwargs["description"], product_id,
                          stuffing=Stuffing.POLYESTER_FIBERFILL, fabric=Fabric.LINEN,
                          size=kwargs['size'])
@@ -42,6 +55,7 @@ class DancingSkeleton(StuffedAnimal):
     def __str__(self):
         """
         String method of the class.
+        :return: str
         """
         return f"{super().__str__()}, " \
                f"Has glow: {self._glow_in_dark} "
@@ -54,6 +68,12 @@ class Reindeer(StuffedAnimal):
     """
 
     def __init__(self, name, product_id, **kwargs):
+        """
+        Construct a new Reindeer.
+        :param name: str
+        :param product_id: str
+        :param kwargs: dict
+        """
         super().__init__(name, kwargs["description"], product_id,
                          stuffing=Stuffing.WOOL, fabric=Fabric.COTTON,
                          size=kwargs['size'])
@@ -62,6 +82,7 @@ class Reindeer(StuffedAnimal):
     def __str__(self):
         """
         String method of the class.
+        :return: str
         """
         return f"{super().__str__()}, " \
                f"Has glow: {self._glow_in_dark} "
@@ -74,6 +95,12 @@ class EasterBunny(StuffedAnimal):
     """
 
     def __init__(self, name, product_id, **kwargs):
+        """
+        Construct a new EasterBunny.
+        :param name: str
+        :param product_id: str
+        :param kwargs: dict
+        """
         super().__init__(name, kwargs["description"], product_id,
                          stuffing=Stuffing.POLYESTER_FIBERFILL, fabric=Fabric.LINEN,
                          size=kwargs['size'])
@@ -82,6 +109,7 @@ class EasterBunny(StuffedAnimal):
     def __str__(self):
         """
         String method of the class.
+        :return: str
         """
         return f"{super().__str__()}, " \
                f"Color: {self._color} "

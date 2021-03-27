@@ -9,8 +9,11 @@ class Candy(StoreItem):
     def __init__(self, name, description, product_id, has_nuts, has_lactose):
         """
         Construct a new Candy.
-        :param has_nuts: boolean
-        :param has_lactose: boolean
+        :param name: str
+        :param description: str
+        :param product_id: str
+        :param has_nuts: str
+        :param has_lactose: str
         """
         super().__init__(name, description, product_id)
         self._contain_nut = has_nuts
@@ -34,8 +37,9 @@ class PumpkinCaramelToffee(Candy):
     def __init__(self, name, product_id, **kwargs):
         """
         Initiated a new Pumpkin Caramel Toffee.
-        :param variety: str
-        :param kwargs: other attributes
+        :param name: str
+        :param product_id: str
+        :param kwargs: dict
         """
         super().__init__(name, kwargs["description"], product_id,
                          has_nuts=kwargs['has_nuts'], has_lactose=True)
@@ -58,8 +62,9 @@ class CandyCanes(Candy):
     def __init__(self, name, product_id, **kwargs):
         """
         Initiated a new Candy Cane.
-        :param stripes: str
-        :param kwargs: other attributes
+        :param name: str
+        :param product_id: str
+        :param kwargs: dict
         """
         super().__init__(name, kwargs["description"], product_id,
                          has_nuts=False, has_lactose=False)
@@ -82,8 +87,9 @@ class CremeEggs(Candy):
     def __init__(self, name, product_id, **kwargs):
         """
         Initiated a new Creme Eggs.
-        :param pack_size: str
-        :param kwargs: other attributes
+        :param name: str
+        :param product_id: str
+        :param kwargs: dict
         """
         super().__init__(name, kwargs["description"], product_id,
                          has_nuts=kwargs['has_nuts'], has_lactose=True)

@@ -12,5 +12,6 @@ class Fabric(Enum):
     def __str__(self):
         """
         String method of the class.
+        :return: str
         """
         return str(self.value)
